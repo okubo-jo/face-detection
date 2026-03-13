@@ -20,8 +20,18 @@ while True:
         minSize=(30,30)
     )
 
+    face_count = len(faces)
+
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0), 2)
+
+    cv2.putText(frame,
+                f"Faces: {face_count}",
+                (10,30),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                1,
+                (0,255,0),
+                2)
 
     cv2.imshow("Face Detection", frame)
 
